@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>OcularNet Disease Detection</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- Login Page -->
+<div id="loginPage" class="container">
+  <h2>Login</h2>
+  <div id="message"></div>
+  <input type="text" id="username" placeholder="Username" autocomplete="username" />
+  <input type="password" id="password" placeholder="Password" autocomplete="current-password" />
+  <button id="loginBtn">Login</button>
+  
+  <div class="footer-links">
+    <a href="about_us.html" id="aboutUsLink">About Us</a>
+    <a href="contact.html" id="contactLink">Contact</a>
+  </div>
+</div>
+
+<!-- Main Page -->
+<div id="mainPage" class="container" style="display:none; position:relative; min-height:300px;">
+  <div class="center-btn">
+    <button id="detectBtn" class="detect-btn">Detect the disease</button>
+  </div>
+  <div style="position: fixed; bottom: 20px; width: 25%; display: flex; justify-content: center;">
+    <button onclick="location.href='index.html'" style="justify-content: end;">Back to Login Page</button>
+  </div>
+</div>
+
+<!-- Detect Disease Page -->
+<div id="detectPage" class="container" style="display:none; max-width:450px;">
+  <h2>Patient Information</h2>
+  <form action="/submit" method="POST" enctype="multipart/form-data" style="width: 95%;">
+    <input type="text" name="patientName" placeholder="Patient Name" required />
+    <input type="number" name="age" placeholder="Age" min="0" max="150" required />
+    <select name="sex" required>
+      <option value="">Select Sex</option>
+      <option>Male</option>
+      <option>Female</option>
+      <option>Other</option>
+    </select>
+    <input type="tel" name="phone" placeholder="Phone Number" pattern="[0-9]{7,15}" title="Enter valid phone number" required />
+    <input type="date" name="dob" placeholder="Date of Birth" required />
+    <label for="image" style="cursor:pointer; color:#0078D7; display:inline-block; margin-bottom:16px;">
+      <strong>Upload Your Image</strong>
+    </label>
+    <input type="file" id="image" name="image" accept="image/*" style="display:none;" required />
+    <button type="submit">Enter</button>
+  </form>
+</div>
+
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Result - OcularNet</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='result.css') }}" />
+</head>
+<body>
+  <div class="container" style="max-width: 600px; text-align: center;">
+    <h2>Prediction Result</h2>
+
+    <!-- Uploaded Image -->
+    <div style="margin: 20px 0;">
+      <img src="{{ url_for('static', filename='uploads/' + filename) }}" 
+           alt="Uploaded Image" style="max-width: 100%; border-radius: 10px;" />
+    </div>
+
+    <!-- Prediction -->
+    <div id="result" style="margin-top: 20px; font-size: 18px; font-weight: bold;">
+      {{ result }}
+    </div>
+
+    <!-- Back Button -->
+    <button id="backBtn" onclick="window.location.href='/'">Back to Home</button>
+  </div>
+  <script src="{{ url_for('static', filename='result.js') }}"></script>
+</body>
+</html>
